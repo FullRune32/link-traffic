@@ -26,3 +26,7 @@ export interface AnalyzeRequest {
 export interface AnalyzeResponse {
   results: AnalysisResult[];
 }
+
+export interface ExportRequest {
+  results: AnalysisResult[];
+}

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import UrlInput from '@/components/UrlInput';
 import AnalyzeButton from '@/components/AnalyzeButton';
 import ResultsCard from '@/components/ResultsCard';
+import ExportButtons from '@/components/ExportButtons';
 import { AnalysisResult, AnalyzeResponse } from '@/types';
 
 export default function Home() {
@@ -130,9 +131,12 @@ export default function Home() {
 
       {results.length > 0 && (
         <div className="mt-8 space-y-4">
-          <h2 className="font-serif text-2xl font-medium text-[#2a2a2a]">
-            Results
-          </h2>
+          <div className="flex items-center justify-between">
+            <h2 className="font-serif text-2xl font-medium text-[#2a2a2a]">
+              Results
+            </h2>
+            <ExportButtons results={results} disabled={loading} />
+          </div>
           {results.map((result, index) => (
             <ResultsCard key={`${result.url}-${index}`} result={result} />
           ))}

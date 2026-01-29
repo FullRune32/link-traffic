@@ -17,7 +17,7 @@ export async function GET(
     return NextResponse.json({ error: 'Screenshot not found' }, { status: 404 });
   }
 
-  return new NextResponse(screenshot, {
+  return new NextResponse(new Uint8Array(screenshot), {
     headers: {
       'Content-Type': 'image/png',
       'Cache-Control': 'public, max-age=86400', // Cache for 24 hours
